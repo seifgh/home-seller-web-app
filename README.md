@@ -32,7 +32,7 @@ $ python manage.py runserver
 ### Built With
  #### Backend
 * [Django](https://www.djangoproject.com/) - The web framework for perfectionists with deadlines.
-* [Django_pandas](https://pypi.org/project/django-pandas/) - Tools for working with pydata.pandas in Django projects.
+* [Django pandas](https://pypi.org/project/django-pandas/) - Tools for working with pydata.pandas in Django projects.
 * [Sklearn](https://scikit-learn.org/) - Python software machine learning library.
 Note: I used Django pandas and Sklearn for buidling a recommender system of each property (Suggestions).
 * [Celery](http://www.celeryproject.org/) - Celery is an asynchronous task queue/job queue based on distributed message passing.
