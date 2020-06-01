@@ -1,0 +1,327 @@
+$md-shadow: 0 1px 3px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.06),0 3px 8px rgba(0,0,0,0.09);
+$sm-shadow: 0 1px 2px rgba(0,0,0,0.05),0 1px 4px rgba(0,0,0,0.05),0 2px 8px rgba(0,0,0,0.05);
+$lg-shadow: 0 1px 4px rgba(0,0,0,0.09),0 3px 8px rgba(0,0,0,0.09),0 4px 13px rgba(0,0,0,0.13);
+
+
+
+
+/* Animations */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translate3d(0,-40px,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        transform: translate3d(0,-40px,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translate3d(100%,0,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fromRight {
+    from {
+        transform: translate3d(-100%,0,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes btnBeforeLoading {
+    0%{
+     	left: 0
+    }
+    50%{
+    	left: 70%;
+
+    }
+    100%{
+    	left: 0;
+    }
+
+
+}
+
+@-webkit-keyframes btnBeforeLoading {
+    0%{
+     	left: 0
+    }
+    50%{
+    	left: 70%;
+
+    }
+    100%{
+    	left: 0;
+    }
+}
+
+@keyframes sketlon{
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes sketlon{
+  0% {
+      opacity: 1;
+  }
+
+  50% {
+      opacity: .5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@mixin breakpoint($point) {
+
+  @if $point == laptop {
+     @media (max-width: 1280px) { @content ; }
+  }
+  @else if $point == tablet {
+     @media (max-width: 768px) { @content ; }
+  }
+   @else if $point == phablet {
+     @media (max-width: 600px)  { @content ; }
+  }
+  @else if $point == mobile {
+     @media (max-width: 480px)  { @content ; }
+
+  }
+  @else if $point == mdMobile {
+     @media (max-width: 320px)  { @content ; }
+  }
+}
+
+@mixin flex( $flex-type: flex, $direction: row, $align-items: stretch, $justify-content: flex-start, $align-content: flex-start ){
+	display: $flex-type;
+	flex-direction: $direction;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	align-content: $align-content;
+}
+
+@mixin userSelect( $property ){
+	-webkit-touch-callout: $property;
+  	-webkit-user-select: $property;
+  	-khtml-user-select: $property;
+  	-moz-user-select: $property;
+  	-ms-user-select: $property;
+  	user-select: $property;
+}
+
+@mixin placeholder( $color: rgba(black, .6), $font-size: 16px  ){
+	::-webkit-input-placeholder { /* Edge */
+		color: $color;
+		font-size: $font-size;
+	}
+
+	:-ms-input-placeholder { /* Internet Explorer */
+		color: $color;
+		font-size: $font-size;
+	}
+
+	::placeholder {
+		color: $color;
+		font-size: $font-size;
+	}
+}
+
+@mixin btn( $color, $background, $border-color: transparent, $border-radius: 0 ){
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+  justify-content: center;
+	box-sizing: border-box;
+	width: auto;
+	padding: 10px 15px;
+
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
+
+	border-width: 2px;
+	border-radius: $border-radius;
+	border-style: solid;
+	border-color: $border-color;
+
+	color: $color;
+	background: $background;
+
+	cursor: pointer;
+	transition: .2s;
+	outline: 0;
+	@include userSelect(none);
+	overflow: hidden;
+	&:active, &:visited{
+		color: $color;
+	}
+	&:active{
+		transform: scale(.95);
+	}
+	i{
+		position: relative;
+		margin-right: 10px;
+	}
+	i.right{
+		position: relative;
+		margin-right: 0;
+		margin-left: 10px;
+	}
+	&.icon-only{
+		i{
+			margin-right: 0;
+		}
+	}
+
+  &.right-mr{
+    margin-right: 10px;
+  }
+  &.left-mr{
+    margin-left: 10px;
+  }
+
+	&.hg{
+		padding: 12px 15px;
+		font-size: 16px;
+		&.icon-only{
+			padding: 13px 15px;
+		}
+	}
+
+}
+
+@mixin box-shadow( $property ){
+	-webkit-box-shadow: $property;
+	-moz-box-shadow: $property;
+	box-shadow: $property;
+}
+
+@mixin modal( $background, $children-pos ){
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 300;
+	display: flex;
+	@if ( $children-pos == center ){
+		justify-content: center;
+	}
+	@else if ( $children-pos == left ){
+		justify-content: flex-start;
+	}
+	@else if ( $children-pos == right ){
+		justify-content: flex-end;
+	}
+	width: 100%; height: 100%;
+	background: $background;
+	&.hide{
+		display: none;
+	}
+
+
+}
+
+%paragraph{
+  position: relative;
+  display: block;
+  font-size: 16px;
+  letter-spacing: .3px;
+  word-spacing: 2px;
+  line-height: 20px;
+  color: black;
+  font-weight: normal;
+}
+%title{
+	position: relative;
+	display: block;
+	font-size: 40px;
+	font-weight: bold;
+  &.cr{
+    text-align: center;
+  }
+}
+
+%image{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+%line-through{
+	text-decoration: line-through;
+}

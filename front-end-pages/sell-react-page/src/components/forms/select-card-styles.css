@@ -1,0 +1,49 @@
+.select-card{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  --selected-color: black;
+  --color: whitesmoke;
+  --width: 190px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 2px solid var(--color);
+  height: auto;
+  width: var(--width);
+  padding: 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: .2s border-color, .2s background, .2s transform;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.select-card:hover:not(.selected){
+  transform: scale(1.05);
+}
+.select-card.selected{
+  --color: var(--selected-color);
+}
+
+.select-card i {
+  position: relative;
+  color: var(--selected-color);
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+.select-card b {
+  color: var(--selected-color);
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  letter-spacing: 1px;
+}

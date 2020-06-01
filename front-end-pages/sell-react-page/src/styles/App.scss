@@ -1,0 +1,372 @@
+@import "./basics";
+
+.App{
+  position: relative;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+.section-1{
+  position: relative;
+  @include flex(flex, row, flex-start, flex-start, flex-start);
+  $bottom-bar-height: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  --part-1-width: 600px;
+  $part-1-width: var(--part-1-width);
+  $part-2-width: calc( 100% - #{$part-1-width});
+  .steps-bar{
+    position: fixed;
+    background: white;
+
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: max-content;
+    z-index: 2;
+    @include flex(flex, column, flex-start, space-around, center);
+    .btn{
+      position: relative;
+      @include flex(flex, row, center, center, center);
+    }
+    .steps-progress{
+      position: relative;
+      display: block;
+      height: 85%;
+      left: 20px;
+      .steps{
+        position: absolute;
+        height: 100%;
+        left: calc( 50% - 22px );
+        z-index: 5;
+        @include flex(flex, column, center, space-around, center);
+        counter-reset: steps;
+        .step{
+          position: relative;
+          display: block;
+          text-align: center;
+          border-radius: 50px;
+          font-size: 16px;
+          font-weight: bold;
+          background: white;
+          border: 2px solid whitesmoke;
+          height: 40px;
+          width: 40px;
+          line-height: 40px;
+          transition: .2s color, .2s background;
+          counter-increment: steps;
+          &.count:before{
+            content:  counter(steps);
+          }
+
+          cursor: pointer;
+
+          span{
+            position: absolute;
+            font-family: sans-serif;
+            display: none;
+            $height: 30px;
+            top: calc( 50% - (#{$height} / 2) - 5px );
+            left: calc(100% + 10px);
+            font-size: 12px;
+            letter-spacing: 1px;
+            background: white;
+            @include box-shadow($sm-shadow);
+
+            color: black;
+            width: auto;
+            padding: 5px 10px;
+            border-radius: 25px;
+            height: $height;
+            line-height: $height;
+            animation: fadeInLeft .2s;
+          }
+
+          &:hover{
+            span{
+              display: block;
+            }
+          }
+          &.show-title{
+            span{
+              display: block;
+            }
+          }
+          &.active{
+            background: $primary-color;
+            border-color: $primary-color;
+            color: white;
+            &.fa-check{
+              animation: grandToNormal .5s;
+            }
+            span{
+              background: $primary-color;
+              color: white;
+
+            }
+          }
+        }
+      }
+    }
+    .progress-bar{
+      position: relative;
+      height: 100%;
+      width: 5px;
+      background: rgba($primary-color , .1);
+      border-radius: 5px;
+      // @include box-shadow($sm-shadow);
+      overflow: hidden;
+      .progress{
+        position: absolute;
+        left: 0;
+        width: 5px;
+        background: $primary-color;
+        transition: .5s height, .5s width;
+      }
+      z-index: 2;
+    }
+  }
+  .title{
+    margin-top: 0;
+  }
+  .form-1{
+    position: relative;
+    width: 400px;
+    &.lg{
+      width: 600px;
+    }
+
+    .field{
+      margin: 10px 0;
+      &:first-child{
+        margin-top: 25px;
+      }
+
+      a, .info{
+        position: relative;
+        display: block;
+        text-align: left;
+        padding: 5px 0 0 0;
+        font-size: 14px;
+        text-decoration: none;
+        &:hover:not(.info){
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+
+    .multi-fields{
+      position: relative;
+      display: block;
+      text-align: center;
+      .select-card{
+        --selected-color: #{$primary-color};
+      }
+      .field{
+        display: inline-block;
+        box-sizing: border-box;
+        width: 50%;
+        &:nth-child(odd){
+          padding-right: 5px;
+        }
+        &:nth-child(even){
+          padding-left: 5px;
+        }
+      }
+    }
+
+    .two-fields{
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      align-items: start;
+      & > *{
+        width: calc(100% - 5px) ;
+        &:nth-child(odd){
+          margin-right: 5px;
+        }
+        &:nth-child(even){
+          margin-left: 5px;
+        }
+        &.field:first-child{
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .btns{
+      position: relative;
+      @include flex(flex, row, center, space-between);
+    }
+    .last{
+  		margin-bottom: 25px;
+  	}
+  }
+
+  .part-1{
+    position: relative;
+    @include flex(flex, column, center, flex-start, flex-start);
+    width: $part-1-width;
+    box-sizing: border-box;
+    height: 100vh;
+    border-right: 2px solid $grey-background;
+    background: #f9f9f9;
+    overflow: hidden;
+    animation: fadeInDown .5s;
+
+    .title{
+      @extend %title;
+      // font-size: 50px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      // text-transform: uppercase;
+    }
+    .image{
+      position: relative;
+      width: 500px;
+      height: auto;
+      img{
+        @extend %image;
+      }
+    }
+    .map{
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .title{
+    @extend %title;
+  }
+  .paragraph{
+    @extend %paragraph;
+    width: 100%;
+    &.cr{
+      text-align: center;
+    }
+  }
+  .part-2{
+    position: relative;
+    @include flex(flex, column, center, flex-start, flex-start);
+    width: $part-2-width;
+    height: 100vh;
+    padding: 50px 10px 10px 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    // padding-top: 50px;
+    padding-bottom: 25px;
+    animation: fadeInUp .5s;
+  }
+  .part-full{
+    position: relative;
+    @include flex(flex, column, center, flex-start, flex-start);
+    width: 100%;
+    padding: 50px 10px 10px 10px;
+    height: auto;
+    box-sizing: border-box;
+    overflow-y: auto;
+    animation: fadeInUp .5s;
+  }
+}
+
+@include breakpoint(laptop){
+  .section-1{
+    --part-1-width: 300px;
+    .steps-bar{
+      position: relative;
+    }
+    .part-1{
+      .title{
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet){
+  .section-1{
+    .title{
+      font-size: 30px;
+    }
+    .part-2{
+      width: 100%;
+    }
+  }
+}
+
+@include breakpoint(phablet){
+  .section-1{
+    flex-direction: column;
+    .full-part, .part-2{
+      height: auto;
+    }
+    .form-1{
+      width: 100%;
+      .title, .pragraph{
+        text-align: center;
+      }
+      .select-card{
+        --selected-color: #{$primary-color};
+        --width: calc(50% - 10px);
+        &:nth-child(odd){
+          margin-left: 0;
+
+        }
+        &:nth-child(even){
+          margin-right: 0;
+
+        }
+        b{
+          font-size: 14px;
+        }
+        i{
+          font-size: 40px;
+        }
+      }
+    }
+
+    .steps-bar{
+      position: relative;
+      display: block;
+      top: 0;
+      padding: 10px;
+      padding-bottom: 50px;
+      text-align: center;
+      height: auto;
+      width: 100%;
+      .steps-progress{
+        width: 100%;
+        box-sizing: border-box;
+        top: 30px;
+
+        left: 0;
+        .steps{
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          position: absolute;
+          left: 0;
+        }
+        .progress-bar{
+          height: 5px;
+          width: 100%;
+          top: calc(50% - 22px);
+          .progress{
+            height: 5px;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(mobile){
+
+}

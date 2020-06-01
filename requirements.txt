@@ -1,0 +1,9 @@
+Django==3.0.4
+django-cors-headers==3.2.1
+django-pandas==0.6.1
+django-ratelimit==2.0.0
+djangorestframework==3.11.0
+Pillow==7.0.0
+redis==3.5.2
+celery==4.3.0
+sklearn==0.0

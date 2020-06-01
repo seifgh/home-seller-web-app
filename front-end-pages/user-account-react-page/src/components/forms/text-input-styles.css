@@ -1,0 +1,138 @@
+.text-field{
+  position: relative;
+  display: flex;
+  align-items: center;
+
+
+  width: auto;
+
+
+  --border-color : #dadce0;
+  --label-color:#80868b ;
+  --input-background : white;
+  --label-color: grey ;
+  --font-size: 18px;
+
+  --field-height: 27px;
+
+  height: var(--field-height);
+
+
+
+  border: 2px solid var(--border-color);
+  background: var(--input-background );
+
+
+  padding: 13px 15px;
+  border-radius: 3px;
+
+  transition: .3s;
+
+}
+.text-area{
+  --field-height: 100px;
+  align-items: flex-start;
+
+}
+
+.text-field > * {
+  transition: .3s;
+}
+
+.text-field.focus:not(.disabled):not(.errors){
+  --border-color : #066AFF;
+  --label-color: #066AFF ;
+}
+
+.text-field.errors{
+  --border-color : #d93025;
+  animation: shake .5s;
+}
+.text-field.focus.errors{
+  --label-color : #d93025;
+}
+
+
+
+.text-field .clear{
+  color: var(--border-color);
+  margin-left: 5px;
+  font-size:  var(--font-size);
+  cursor: pointer;
+}
+
+.text-field .clear:hover{
+  color: var(--border-color);
+  cursor: pointer;
+}
+
+
+
+.text-field label{
+  position: absolute;
+  background: white;
+  color: var(--label-color);
+  font-size: var(--font-size);
+  margin: 0;
+  /*transition:.3s all;*/
+}
+.text-field.focus label{
+  --font-size: 14px;
+  margin-top: calc( ((var(--field-height) / 2)  * -1) - var(--font-size)  );
+  margin-left: -10px;
+  padding: 0 5px;
+}
+@-moz-document url-prefix() {
+  .text-field.focus label{
+    margin-top: calc( ((var(--field-height) / 2)  * -1) - ( var(--font-size) * 2)   );
+  }
+}
+
+.text-area.focus label{
+   margin-top:  -22px;
+}
+
+.text-field input, textarea{
+  position: relative;
+  display: block;
+  outline: 0;
+  border:0;
+  font-size:18px;
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  resize: none;
+
+}
+
+
+.date-picker-input{
+  position: fixed !important;
+  top:0; left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background: rgba(0,0,0,.5);
+  z-index: 10;
+  transition: .1s all;
+}
+.date-picker-input.hide{
+  opacity: 0;
+  transform: scale(0);
+  /*transition: .5s;*/
+}
+
+
+
+.date-picker-input > .date-picker{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 20%;
+
+}
+
+.date-picker-input.hide .date-picker{
+  top: -100%;
+}

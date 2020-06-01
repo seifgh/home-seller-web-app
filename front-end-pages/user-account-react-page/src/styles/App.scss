@@ -1,0 +1,33 @@
+@import "./basics";
+
+main{
+	position: relative;
+	display: block;
+	min-height: 100vh;
+	width: 100%;
+  .title{
+    position: relative;
+    width: 100%;
+    @extend %title;
+  }
+
+  .section-1{
+    position: relative;
+    position: relative;
+    width: 100%;
+    padding:10px 20px;
+    box-sizing: border-box;
+    @include flex( flex, column, center , flex-start, center );
+    & > *{
+      width: 100%;
+    }
+    .nav-tabs-1{
+      .elements{
+        position: relative;
+        @include flex( flex, column, center , flex-start, center );
+        width: 100%;
+      }
+    }
+  }
+
+}

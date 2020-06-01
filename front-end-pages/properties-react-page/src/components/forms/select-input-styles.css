@@ -1,0 +1,163 @@
+
+.select-field{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: auto;
+  outline: 0;
+
+  --border-color : #dadce0;
+  --label-color:#80868b ;
+  --input-background : white;
+  --label-color: grey ;
+  --options-height:300px;
+  --selected-background: whitesmoke ;
+  --field-height : 26px;
+  --font-size: 18px;
+  --options-font-size: 14px;
+
+  border: 2px solid var(--border-color);
+  background: var(--input-background );
+
+  height: var(--field-height);
+  padding: 13px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .3s;
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.select-field > * {
+  transition: .3s;
+}
+
+.select-field.focus{
+  --border-color : #066AFF;
+  --label-color: #066AFF ;
+  z-index: 3;
+}
+.select-field.selected{
+  --border-color : #066AFF;
+  --label-color: #066AFF ;
+}
+.select-field.errors{
+  --border-color : #d93025;
+  animation: shake .5s;
+}
+.select-field.focus.errors{
+  --label-color : #d93025;
+}
+
+
+
+.select-field .icon{
+  color: var(--border-color);
+  position: absolute;
+  right: 15px;
+  display: block;
+  margin-left: 5px;
+  font-size: var(--font-size);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.select-field .icon:hover{
+  color: var(--border-color);
+  cursor: pointer;
+}
+
+
+
+.select-field label, .select-field .selected{
+  background: red;
+  position: absolute;
+  background: white;
+  color: var(--label-color);
+  font-size: var(--font-size);
+  margin: 0;
+  /*transition:.3s all;*/
+
+}
+.select-field .selected{
+	color: black;
+	width: calc(100% - 50px);
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.select-field.focus label, .select-field.selected label {
+  --font-size: 14px;
+  margin-top: calc( ((var(--field-height) / 2)  * -1) - var(--font-size)  );
+  margin-left: -10px;
+  padding: 0 5px;
+}
+@-moz-document url-prefix() {
+  .select-field.focus label, .select-field.selected label{
+    margin-top: calc( ((var(--field-height) / 2)  * -1) - ( var(--font-size) * 2)   );
+  }
+}
+
+
+.select-field .options{
+	position: absolute;
+	padding: 0 0 0 0;
+	box-sizing: border-box;
+	top: 10px;
+	left: -2px;
+	display: grid;
+	grid-template-columns: 1fr;
+  	border: 2px solid var(--border-color);
+  	border-top:0;
+  	border-radius: 3px;
+	width: calc(100% + 4px);
+	height: auto;
+	max-height: var(--options-height);
+	background: white;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition-duration: .4s;
+	border-top:0;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+  z-index: 2;
+}
+.select-field .options.hide{
+	height: 0;
+	padding: 0;
+	border-bottom:0;
+
+	overflow-y: hidden;
+}
+
+
+.select-field .options > *{
+	position: relative;
+	display: block;
+	height:auto;
+	padding: 10px 5px;
+	font-size: var(--options-font-size);
+	width: 100%;
+	cursor: pointer;
+	transition-duration: .2s;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.select-field .options > *:nth-child(odd){
+  /* background: #f9f9f9; */
+  border: 1px solid whitesmoke;
+  border-left: 0;
+  border-right: 0;
+}
+.select-field .options > *:active{
+	background: var(--selected-background);
+}
+.select-field .options > *.selected{
+	background: var(--selected-background);
+}

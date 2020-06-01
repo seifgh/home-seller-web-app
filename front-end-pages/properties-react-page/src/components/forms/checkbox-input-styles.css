@@ -1,0 +1,38 @@
+
+
+.checkbox{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  margin-bottom: 5px;
+  --icon-color: whitesmoke;
+}
+
+.checkbox.checked{
+  --icon-color: #5294e2;
+}
+
+.checkbox > i{
+  position: relative;
+  display: block;
+  font-size: 20px;
+  margin: 0 10px 0 0;
+  color: var(--icon-color);
+  background: white;
+  cursor: pointer;
+  transition: .1s transform;
+}
+.checkbox > i:active{
+  transform: scale(1.1);
+}
+
+
+
+.checkbox > .text{
+  position: relative;
+  display: block;
+
+  font-size: 16px;
+}

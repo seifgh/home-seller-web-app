@@ -1,0 +1,98 @@
+
+
+.range-input{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  --primary-color: #066AFF;
+}
+
+
+.multi{
+  padding-top: 25px;
+}
+.multi input[type=range]{
+  position: absolute;
+  top: 0;
+}
+
+.multi .multi-fields {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
+}
+.multi .multi-fields > * {
+  width: 100%;
+  margin-right: 2.5px;
+  margin-left: 2.5px;
+}
+.multi .multi-fields > *:first-child {
+  margin-left: 0;
+}
+.multi .multi-fields > *:last-child {
+  margin-right: 0;
+}
+
+
+
+
+.range-input input[type=range]::-webkit-slider-thumb{
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  border: 2.5px solid var(--primary-color);
+  height: 20px; width: 20px;
+  border-radius: 50px;
+  bottom: 8px;
+  cursor: pointer;
+  z-index: 2;
+}
+.range-input input[type=range]::-webkit-slider-thumb:active{
+  transform: scale(1.1);
+  transition: .2s transform;
+}
+ .range-input input[type=range]::-moz-range-thumb{
+   position: relative;
+   -webkit-appearance: none;
+   appearance: none;
+   background: white;
+   border: 2.5px solid var(--primary-color);
+   height: 15px; width: 15px;
+   border-radius: 50px;
+   bottom: 8px;
+   cursor: pointer;
+   z-index: 5;
+ }
+ .range-input input[type=range]::-moz-range-thumb:active{
+  transform: scale(1.1);
+  transition: .2s transform;
+}
+.range-input input[type=range]:focus {
+  outline: none;
+}
+
+.range-input input[type=range]{
+  height: 4px;
+  border-radius: 25px;
+  background: var(--primary-color);
+}
+
+.range-input input[type=range]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 25px;
+  background: var(--primary-color);
+}
+
+.range-input input[type=range]{
+
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}

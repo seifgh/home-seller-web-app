@@ -1,0 +1,11 @@
+
+._horizontal-scroller {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+}
+._horizontal-scroller > * {
+  flex: 0 0 auto;
+}

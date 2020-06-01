@@ -1,0 +1,74 @@
+
+
+
+.file-input{
+  --border-color : #dadce0;
+  --border-active-color: #6a46da;
+  --input-background : white;
+  --label-color:#808080;
+}
+
+
+.file-input.has-file{
+  --border-active-color : #6a46da;
+  --border-active-color:#6a46da ;
+  --input-background : white;
+}
+
+.file-input.active .drop-zone{
+  --input-background: whitesmoke;
+}
+
+.file-input.errors{
+  --border-color : red;
+  --label-color:#d93025 ;
+  animation: shake .5s;
+}
+
+
+.file-input .drop-zone{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 3px;
+  background: var(--input-background);
+  transition: .3s;
+  border:2px solid var(--border-color);
+}
+
+.file-input  * {
+  z-index: 2;
+}
+
+
+.file-input  label{
+  font-size:18px;
+  padding: 5px 0;
+  color: var(--label-color);
+}
+.file-input small{
+  font-weight: bold;
+}
+
+.file-input .hidden{
+  display: none;
+}
+
+.file-input .uploaded-image{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: .2;
+}

@@ -1,0 +1,111 @@
+@import "./basics";
+
+.App{
+  position: relative;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+.section-1{
+  position: relative;
+  @include flex(flex, row, flex-start, flex-start, flex-start);
+  $bottom-bar-height: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  --part-1-width: 600px;
+  $part-1-width: var(--part-1-width);
+  $part-2-width: calc( 100% - #{$part-1-width});
+  .title{
+    @extend %title;
+    font-size: 35px;
+    text-align: center;
+  }
+
+
+  .part-1{
+    position: relative;
+    @include flex(flex, column, center, center, flex-start);
+    width: $part-1-width;
+    box-sizing: border-box;
+    height: 100vh;
+    border-right: 2px solid $grey-background;
+    background: #f9f9f9;
+    overflow: hidden;
+    animation: fadeInDown .5s;
+
+    .title{
+      @extend %title;
+      // font-size: 50px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      // text-transform: uppercase;
+    }
+    .image{
+      position: relative;
+      width: 500px;
+      height: auto;
+      img{
+        @extend %image;
+      }
+    }
+    .map{
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .paragraph{
+    @extend %paragraph;
+    width: 100%;
+    &.cr{
+      text-align: center;
+    }
+  }
+  .part-2{
+    position: relative;
+    @include flex(flex, column, center, flex-start, null);
+    width: $part-2-width;
+    padding: 50px 10px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    animation: fadeInUp .5s;
+  }
+}
+
+
+@include breakpoint(laptop){
+  .section-1{
+    --part-1-width: 350px;
+    .part-1{
+      .title{
+        font-size: 30px;
+      }
+      .image{
+        width: 300px;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet){
+  .section-1{
+    .part-2{
+      width: 100%;
+      .title{
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@include breakpoint(mobile){
+  .section-1{
+    .part-2{
+      .title{
+        font-size: 25px;
+      }
+    }
+  }
+}
